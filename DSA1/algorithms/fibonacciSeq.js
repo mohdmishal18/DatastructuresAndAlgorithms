@@ -21,3 +21,10 @@ function fibonacciSequence(n)
 }
 
 console.log(fibonacciSequence(7));
+
+// Big-O Guide.
+
+//calculation not depend on input size - O(1)
+// 1 loop - O(n)
+// nested loops - O(n^2)
+// Input size reduced by half - O(logn)
