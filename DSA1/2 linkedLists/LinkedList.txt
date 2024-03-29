@@ -1,0 +1,26 @@
+#What is a Linked List ? 
+A Linked List is a linear data structure that includes a series of connected nodes.
+Each node consists of a data and a pointer that points to the next node .
+
+#The list elements can be easily inserted or removed without reallocation 
+or reorganization of the entire structure.
+
+#Random access of elements is not feasible and accessing an element have linear time complexity.
+
+# The Linked List data Structure supports three main operations
+  => Insertion : to add an element at the begining ,end or at a given index in the list.
+  => Deletion  : to remove an item given its index or value.
+  => Search    : to find an element given its value.
+
+# Applications of linked lists.
+ > Implementation of stacks and queues.
+ > Implementation of Graphs.
+ > Dynamic memory allocation.
+ > 
+
+ # Application in real world.
+ > image viewer : Previous and next images are linked and can be accessed by the next and previous buttons.
+ > Previous and next page in a web browser.
+ > GPS navigation systems.
+ > Image Processing.
+ > Undo/Redo Functionality.
