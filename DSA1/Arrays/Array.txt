@@ -1,0 +1,23 @@
+#What is an Array ?
+An array is a datastructure that stores collection of elements in a contigeous block of memory. 
+and also it can hold a collection of values.
+
+An array can contain a mix of different data types.You can store strings, booleans, numbers 
+or even objects all in the same array
+
+Arrays are resizable.You don't have to declare the size of an array before creating it 
+
+Javascript arrays are zero-indexed and the insertion order maintained.
+
+Arrays are iterables, they can be used with for of loops.
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#Array - Big-O time complexity.
+
+1.Insert / remove from  end - O(1)
+2.Insert / remove from the begining - O(n)
+3.Access - O(1)
+4.Search - O(n)
+5.Push / Pop - O(1)
+6.Shift / Unshift / Concat / Splice / Slice - O(n)
+7.forEach / map / filter / reduce - O(n)
