@@ -162,6 +162,21 @@ class LinkedList
         return -1;
     }
 
+    reverse()
+    {
+        let prev = null;
+        let curr = this.head
+
+        while(curr)
+        {
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
+
     print()
     {
         if(this.isEmpty())
@@ -174,7 +189,7 @@ class LinkedList
             let listValues = ''
             while(curr)
             {
-                listValues += `${curr.data}`
+                listValues += `${curr.data}` + " "
                 curr = curr.next
             }
             console.log(listValues);
@@ -195,4 +210,7 @@ list.append(4)
 list.append(5)
 list.append(6)
 
-console.log(list.search(6))
+list.print()
+
+list.reverse()
+list.print()
