@@ -1,3 +1,5 @@
 1. What is Datastructure ? 
 Ans. Datastructure is the way of storing and organizing data in a computer.
      It is the way of arranging data in a computer so that it can be accessed and updated quickly
+
+2.

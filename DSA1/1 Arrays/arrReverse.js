@@ -50,4 +50,6 @@ function reverse3(arr)
     return arr;
 }
 
+console.log(reverse3([1,2,3,4,5,6]));
+
 

@@ -17,7 +17,7 @@ function findDuplicate(arr)
 
     return result
 }
-
+console.log(findDuplicate([6,6,2,8,2,6,3,8,3,6]))
 
 //Efficient way; (using hash and set)
 
@@ -52,4 +52,4 @@ function efficientFind2(arr)
     return duplicate;
 }
 
-console.log(efficientFind2([6,6,2,8,2,6,3,8,3,6]))
+
