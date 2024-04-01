@@ -181,6 +181,42 @@ class SinglyLinkedList
         }
         this.size--;
     }
+
+    search(data)
+    {
+        if(this.isEmpty())
+        {
+            return -1
+        }
+
+        let prev = this.head
+        let i = 0;
+        while(prev)
+        {
+            if(prev.data === data)
+            {
+                return i;
+            }
+            i++
+            prev = prev.next
+        }
+        return -1
+    }
+
+    reverse()
+    {
+        let prev = null
+        let curr = this.head
+        while(curr)
+        {
+            let next = curr.next
+            curr.next = prev
+
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
     
     print()
     {
@@ -194,7 +230,7 @@ class SinglyLinkedList
             let listData = ''
             while(curr)
             {
-                listData += curr.data + "->"
+                listData += curr.data + " -> "
                 curr = curr.next
             }
             console.log("list : " + listData)
@@ -209,10 +245,7 @@ list.append(3)
 list.append(4)
 list.append(5)
 list.print()
-console.log(list.getSize())
 
-list.removeFrom(5);
-list.print();
-console.log(list.getSize())
-
-
+list.reverse();
+console.log("Reversed list ");
+list.print()

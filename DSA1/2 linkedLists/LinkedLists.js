@@ -1,32 +1,50 @@
-// Linked List .
-
+// linked list.
 class Node
 {
     constructor(data)
     {
-        this.data = data;
-        this.next = null;
+        this.data = data
+        this.next = null
     }
 }
 
-class LinkedList
+class SinglyLinkedList
 {
     constructor()
     {
-        this.head = null;
-        this.size = 0;
+        this.head = null
+        this.size = 0
     }
-
-    isEmpty()
-    {
-        return this.size === 0;
-    }
-
+    
     getSize()
     {
         return this.size;
     }
-
+    
+    isEmpty()
+    {
+        return this.size === 0;
+    }
+    
+    append(data)
+    {
+        const node = new Node(data)
+        if(this.isEmpty())
+        {
+            this.head = node;
+        }
+        else
+        {
+            let prev = this.head
+            while(prev.next)
+            {
+                prev = prev.next;
+            }
+            prev.next = node
+        }
+        this.size++
+    }
+    
     prepend(data)
     {
         const node = new Node(data)
@@ -34,39 +52,19 @@ class LinkedList
         {
             this.head = node
         }
-        else 
-        {
-            node.next = this.head
-            this.head = node   
-        }
-        this.size++
-    }
-
-    append(data)
-    {
-        const node = new Node(data)
-
-        if(this.isEmpty())
-        {
-            this.head = node;
-        }
         else
         {
-            let prev = this.head;
-            while(prev.next)
-            {
-                prev = prev.next
-            }
-            prev.next = node
+            node.next = this.head
+            this.head = node
         }
         this.size++
     }
-
+    
     insert(data, index)
     {
         if(index < 0 || index > this.size)
         {
-            return
+            return console.log(null)
         }
         if(index === 0)
         {
@@ -74,42 +72,86 @@ class LinkedList
         }
         else
         {
-            let node = new Node(data)
-            let prev = this.head
-            for(let i = 0; i < index - 1; i++)
-            {
-                prev = prev.next
-            }
-            node.next = prev.next;
-            prev.next = node
-            this.size++
+           const node = new Node(data);
+           let prev = this.head
+           for(let i = 0; i < index - 1; i++)
+           {
+               prev = prev.next
+           }
+           node.next = prev.next;
+           prev.next = node;
+           this.size++
         }
     }
-
-    removeFrom(index)
+    
+    shift()
     {
-        if(index < 0 || index >= this.size)
+        if(this.isEmpty())
         {
-            return null
+            return console.log("the list is empty !! no elements to remove")
         }
-        let removedNode
-        if(index === 0)
+        else if(this.getSize() === 1)
         {
-            removedNode = this.head
-            this.head = this.head.next
+            this.head = null;
+            this.size--;
+            return console.log("head node removed")
         }
         else
         {
-            let prev = this.head
+            let removedNode = this.head;
+            this.head = this.head.next
+            this.size--;
+            return console.log("Node " + removedNode.data + " removed")
+        }
+    }
+    
+    pop()
+    {
+        if(this.isEmpty())
+        {
+            return console.log("the list is empty !! no elements to remove")
+        }
+        else if(this.getSize() === 1)
+        {
+            this.head = null;
+            this.size--;
+            return console.log("head node removed")
+        }
+        else
+        {
+           let prev = this.head;
+           for(let i = 0; i < this.size - 2; i++)
+           {
+               prev = prev.next
+           }
+           prev.next = null
+           this.size--;
+        }
+    }
+    
+    removeFrom(index)
+    {
+        if(index < 0 || index > this.size - 1)
+        {
+            return console.log("please enter a valid index")
+        }
+        
+        if(index === 0)
+        {
+            this.head = this.head.next;
+        }
+        else
+        {
+            let prev = this.head;
             for(let i = 0; i < index - 1; i++)
             {
                 prev = prev.next
             }
-            removedNode = prev.next
-            prev.next = removedNode.next
+            // let removedNode = prev.next
+            // prev.next = removedNode.next;
+            prev.next = prev.next.next
         }
-        this.size--;
-        return removedNode.data
+        this.size--
     }
 
     removeData(data)
@@ -118,11 +160,10 @@ class LinkedList
         {
             return null
         }
+        
         if(this.head.data === data)
         {
             this.head = this.head.next
-            this.size--
-            return data
         }
         else
         {
@@ -133,13 +174,12 @@ class LinkedList
             }
             if(prev.next)
             {
-                const removedNode = prev.next
-                prev.next = removedNode.next
-                this.size--
-                return data;
+                // const removedNode = prev.next
+                // prev.next = removedNode.next
+                prev.next = prev.next.next
             }
-            return null
         }
+        this.size--;
     }
 
     search(data)
@@ -148,68 +188,64 @@ class LinkedList
         {
             return -1
         }
-        let i = 0
-        let curr = this.head
-        while(curr)
+
+        let prev = this.head
+        let i = 0;
+        while(prev)
         {
-            if(curr.data === data)
+            if(prev.data === data)
             {
-                return i
+                return i;
             }
-            curr = curr.next
             i++
+            prev = prev.next
         }
-        return -1;
+        return -1
     }
 
     reverse()
     {
-        let prev = null;
+        let prev = null
         let curr = this.head
-
         while(curr)
         {
             let next = curr.next
             curr.next = prev
+
             prev = curr
             curr = next
         }
         this.head = prev
     }
-
+    
     print()
     {
         if(this.isEmpty())
         {
-            console.log("the list is empty")
+            console.log("The list is empty !!!")
         }
-        else 
+        else
         {
-            let curr = this.head
-            let listValues = ''
+            let curr = this.head;
+            let listData = ''
             while(curr)
             {
-                listValues += `${curr.data}` + " "
+                listData += curr.data + " -> "
                 curr = curr.next
             }
-            console.log(listValues);
+            console.log("list : " + listData)
         }
     }
 }
 
-const list = new LinkedList();
-
-console.log("list is empty : ",list.isEmpty());
-console.log('list size : ', list.getSize());
-list.print();
-
+const list = new SinglyLinkedList()
 list.append(1)
 list.append(2)
 list.append(3)
 list.append(4)
 list.append(5)
-list.append(6)
 list.print()
 
-list.removeFrom(1)
+list.reverse();
+console.log("Reversed list ");
 list.print()
