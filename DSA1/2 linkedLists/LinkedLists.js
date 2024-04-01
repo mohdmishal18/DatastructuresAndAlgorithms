@@ -209,8 +209,7 @@ list.append(3)
 list.append(4)
 list.append(5)
 list.append(6)
-
 list.print()
 
-list.reverse()
+list.removeFrom(1)
 list.print()
