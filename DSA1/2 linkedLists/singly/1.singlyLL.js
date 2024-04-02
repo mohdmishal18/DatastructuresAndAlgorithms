@@ -1,3 +1,6 @@
+// "return this" in every function to implement method chaining , eg : list.append(1).append(2)
+//if we don't return this ,if we didn't return the this keyword , it shows an error.
+
 // linked list.
 class Node
 {

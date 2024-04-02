@@ -36,10 +36,35 @@ class LinkedList
         }
         else
         {
-                  
+            this.tail.next = node
+            this.tail = node
+        }
+        this.size++
+    }
+
+    print()
+    {
+        if(this.isEmpty())
+        {
+            return console.log("the list is empty")
+        }
+        else
+        {
+            let listData = ''
+            let curr = this.head
+            while(curr)
+            {
+                listData += curr.data + ' '
+                curr = curr.next
+            }
+            console.log(listData);
         }
     }
 }
 
 const list = new LinkedList()
-console.log(list);
+list.push(3);
+list.print();
+list.push(8);
+list.print()
+

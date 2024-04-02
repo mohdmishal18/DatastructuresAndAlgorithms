@@ -1,3 +1,5 @@
+
+
 // linked list.
 class Node
 {
@@ -43,6 +45,7 @@ class SinglyLinkedList
             prev.next = node
         }
         this.size++
+        return this
     }
     
     prepend(data)
@@ -239,13 +242,5 @@ class SinglyLinkedList
 }
 
 const list = new SinglyLinkedList()
-list.append(1)
-list.append(2)
-list.append(3)
-list.append(4)
-list.append(5)
-list.print()
-
-list.reverse();
-console.log("Reversed list ");
+list.append(1).append(2);
 list.print()
