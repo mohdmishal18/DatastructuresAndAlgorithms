@@ -10,11 +10,11 @@
 //F2 = 1 + 0
 //F2 = 1
 
-// function recursiveFibonacci(n)
-// {
-//    if(n < 2)return n
+function recursiveFibonacci(n)
+{
+   if(n < 2)return n
    
-//    return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2); // O(2^n)
-// }
+   return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2); // O(2^n)
+}
 
-// console.log(recursiveFibonacci(3))
+console.log(recursiveFibonacci(8))

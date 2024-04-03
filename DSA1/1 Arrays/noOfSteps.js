@@ -15,5 +15,4 @@ function reduce(n)
 
     return steps;
 }
-
 console.log(reduce(56));
