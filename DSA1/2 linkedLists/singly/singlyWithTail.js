@@ -42,6 +42,29 @@ class LinkedList
         this.size++
     }
 
+    pop()
+    {
+        if(this.isEmpty())return console.log("empty")
+
+        if(this.getSize() === 1)
+        {
+            this.head = null
+            this.tail = null
+        }
+        else
+        {
+           let prev = this.head
+           while(prev.next !== this.tail)
+           {
+            prev = prev.next
+           }
+
+           prev.next = null
+           this.tail = prev
+        }
+        this.size--
+    }
+
     print()
     {
         if(this.isEmpty())
@@ -54,7 +77,7 @@ class LinkedList
             let curr = this.head
             while(curr)
             {
-                listData += curr.data + ' '
+                listData += curr.data + ' -> '
                 curr = curr.next
             }
             console.log(listData);
@@ -63,8 +86,12 @@ class LinkedList
 }
 
 const list = new LinkedList()
-list.push(3);
-list.print();
-list.push(8);
+list.push(1)
+list.push(2)
+list.push(3)
+list.push(4)
+list.push(5)
 list.print()
 
+list.pop()
+list.print()
