@@ -25,23 +25,24 @@ class LinkedList
     {
         return this.size === 0
     }
-
-    push(data)
+    print()
     {
-        const node = new Node(data)
         if(this.isEmpty())
         {
-            this.head = node;
-            this.tail = node;
+            return console.log("the list is empty")
         }
         else
         {
-            this.tail.next = node
-            this.tail = node
+            let listData = ''
+            let curr = this.head
+            while(curr)
+            {
+                listData += curr.data + ' -> '
+                curr = curr.next
+            }
+            console.log(listData);
         }
-        this.size++
     }
-
     pop()
     {
         if(this.isEmpty())return console.log("empty")
@@ -65,33 +66,55 @@ class LinkedList
         this.size--
     }
 
-    print()
+    append(data)
     {
+        const node = new Node(data)
         if(this.isEmpty())
         {
-            return console.log("the list is empty")
+            this.head = node;
+            this.tail = node;
         }
         else
         {
-            let listData = ''
-            let curr = this.head
-            while(curr)
-            {
-                listData += curr.data + ' -> '
-                curr = curr.next
-            }
-            console.log(listData);
+            this.tail.next = node
+            this.tail = node
         }
+        this.size++
+    }
+    prepend(data)
+    {
+        const node = new Node(data);
+        if(this.isEmpty())
+        {
+            this.head = node
+            this.tail = node
+        }
+        else
+        {
+            node.next = this.head
+            this.head = node;
+        }
+        this.size++
+    }    
+    middleValue()
+    {
+        let fast = this.head;
+        let slow = this.head;
+
+        while(fast && fast.next)
+        {
+            slow = slow.next;
+            fast = fast.next.next
+        }
+        return console.log(slow.data);
     }
 }
-
 const list = new LinkedList()
-list.push(1)
-list.push(2)
-list.push(3)
-list.push(4)
-list.push(5)
-list.print()
+list.append(1)
+list.append(2)
+list.append(3)
+list.append(4)
+list.append(5)
+list.print();
 
-list.pop()
-list.print()
+list.middleValue()
