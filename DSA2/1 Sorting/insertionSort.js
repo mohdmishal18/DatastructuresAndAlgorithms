@@ -6,12 +6,11 @@ function InsertionSort(arr)
     for(let i = 0; i < arr.length; i++)
     {
         let numberToInsert = arr[i];
-        let j = i - 1;
-
+        let j = i - 1
         while(j >= 0 && arr[j] > numberToInsert)
         {
             arr[j + 1] = arr[j]
-            j--;
+            j--
         }
         arr[j + 1] = numberToInsert
     }
