@@ -239,8 +239,18 @@ class SinglyLinkedList
             console.log("list : " + listData)
         }
     }
+
+    tnirp()
+    {
+
+    }
+
 }
 
 const list = new SinglyLinkedList()
-list.append(1).append(2);
+list.append(1)
+list.append(2)
+list.append(3)
+list.append(4)
+list.append(5)
 list.print()

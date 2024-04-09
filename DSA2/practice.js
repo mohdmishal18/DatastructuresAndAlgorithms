@@ -1,43 +1,23 @@
-// bubble Sort
-let arr = [0,1,8,3,5,4,9,2,9,2,6]
+// Insertion sort
 
-function bubbleSort(arr)
+
+function InsertionSort(arr)
 {
-    for(let i = 0; i < arr.length; i++)
+    for(let i = 1; i < arr.length; i++)
     {
-        for(let j = 0; j < arr.length; j++)
+        let numberToInsert = arr[i]
+        for(let j = i - 1; j >= 0; j--)
         {
-            if(arr[i] < arr[j])
+            if(numberToInsert < arr[j])
             {
-                let temp = arr[i]
-                arr[i] = arr[j]
-                arr[j] = temp
+                let temp = arr[j]
+                arr[j] = numberToInsert
+                arr[j + 1] = temp
             }
+            else break
         }
     }
     return arr
 }
-
-function bubbleSort2(arr)
-{
-    let swapped = false
-    do
-    {
-        swapped = false
-        for(let i = 0; i < arr.length; i++)
-        {
-            if(arr[i] > arr[i + 1])
-            {
-                let temp = arr[i]
-                arr[i] = arr[i + 1]
-                arr[i + 1] = temp
-                swapped = true
-            }
-        }
-    }
-    while(swapped)
-
-    return  arr
-}
-
-console.log(bubbleSort2(arr));
+let arr = [7,2,2,7,3,0,8,1,6,4]
+console.log(InsertionSort(arr))

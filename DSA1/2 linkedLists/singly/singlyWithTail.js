@@ -43,6 +43,51 @@ class LinkedList
             console.log(listData);
         }
     }
+
+    printReverse()
+    {
+        if(!this.head)return console.log("the list is empty")
+        
+        let last = this.tail
+        let reverse = ""
+        while(last)
+        {
+            reverse += `${last.data} ->`
+            last = last.prev
+        }
+        return console.log(reverse)
+    }
+
+    singlyToDoubly(singlyList)
+    {
+        if (!singlyList.head) return null;
+
+        let doublyHead = null;
+        let prevDoubly = null;
+        let currentSingly = singlyList.head;
+        let prevNode = null;
+
+        while (currentSingly) {
+            const newNode = new Node(currentSingly.data);
+            if (!doublyHead) {
+                doublyHead = newNode;
+            } else {
+                prevDoubly.next = newNode;
+                newNode.prev = prevDoubly;
+            }
+            prevDoubly = newNode;
+
+            // Update the prev pointer of the current singly linked list node
+            currentSingly.prev = prevNode;
+            prevNode = currentSingly;
+
+            currentSingly = currentSingly.next;
+        }
+
+        this.tail = prevDoubly; // Update the tail pointer of the doubly linked list
+        return console.log(doublyHead)
+    }
+
     pop()
     {
         if(this.isEmpty())return console.log("empty")
@@ -117,4 +162,5 @@ list.append(4)
 list.append(5)
 list.print();
 
-list.middleValue()
+list.singlyToDoubly(list)
+list.printReverse()
