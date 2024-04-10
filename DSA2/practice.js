@@ -1,23 +1,21 @@
-// Insertion sort
+//quick sort
 
-
-function InsertionSort(arr)
+function quickSort(arr)
 {
-    for(let i = 1; i < arr.length; i++)
+    if(arr.length < 2)return arr
+
+    let pivot = arr[arr.length - 1]
+    let left = []
+    let right = []
+
+    for(let i = 0; i < arr.length - 1; i++)
     {
-        let numberToInsert = arr[i]
-        for(let j = i - 1; j >= 0; j--)
-        {
-            if(numberToInsert < arr[j])
-            {
-                let temp = arr[j]
-                arr[j] = numberToInsert
-                arr[j + 1] = temp
-            }
-            else break
-        }
+        if(arr[i] < pivot)left.push(arr[i])
+        else right.push(arr[i])
     }
-    return arr
+
+    return [...quickSort(left) , pivot , ...quickSort(right)]
 }
-let arr = [7,2,2,7,3,0,8,1,6,4]
-console.log(InsertionSort(arr))
+
+let arr = [7,8,2,0,4,1,0,8,3,6,5,-5]
+console.log(quickSort(arr))
