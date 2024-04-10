@@ -1,4 +1,16 @@
 // Merge Sort
+//Theory
+// Merge sort is one of the sorting techniques that work on the divide and conquer approach.
+// The Given array is divided in half again and again and those parts are arranged in sorted order
+// and merged back to form the complete sorted array.
+
+
+//Approach
+// First create a recursive function mergeSort the divide the array into halves again and again by findiing the middle index and call mergesort again for left and right halves.
+// Define a function merge that will be called to sort and merge the subarrays and will be called after the mergeSort function returns.
+// Inside merge function take new subarrays divided by mergeSort and start the merge process
+// Merge the subarrays in a way that the smallar element is put first in the array on every iteration and after one is finished push the second subarray completely.
+// It process starting from the unit subarray will continue till the whole array is merged and sorted completely.
 
 function mergeSort(arr)
 {
