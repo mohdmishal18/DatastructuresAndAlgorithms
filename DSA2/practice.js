@@ -1,23 +1,29 @@
-// selection sort
 
-function selectionSort(arr)
+// practice merge sort
+
+function mergeSort(arr)
 {
-    let small
-    for(let i = 0; i < arr.length; i++)
+    if(arr.length < 2)return arr
+
+    let mid = Math.floor(arr.length / 2)
+    let left = arr.slice(0 , mid)
+    let right = arr.slice(mid)
+
+    return merge(mergeSort(left), mergeSort(right))
+}
+
+function merge(leftArr , rightArr)
+{
+    let sortedArr = []
+
+    while(leftArr.length && rightArr.length)
     {
-        small = i
-        for(let j = i + 1; j < arr.length; j++)
-        {
-            if(arr[small] > arr[j])
-            {
-                small = j
-            }
-        }
-        [arr[i] , arr[small]] = [arr[small] , arr[i]]
+        if(leftArr[0] <= rightArr[0])sortedArr.push(leftArr.shift())
+        else sortedArr.push(rightArr.shift())
     }
 
-    return arr
+    return [...sortedArr , ...leftArr , ...rightArr]
 }
 
 let arr = [-900,4,1,6,7,434,2,4,677,1,-888]
-console.log(selectionSort(arr))
+console.log(mergeSort(arr))
