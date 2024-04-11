@@ -1,5 +1,3 @@
-// implement queue using two stacks.
-
 class Queue
 {
     constructor()
@@ -7,7 +5,6 @@ class Queue
         this.L1 = []
         this.L2 = []
     }
-
     enqueue(data)
     {
         while(this.L1.length !== 0)
@@ -22,7 +19,6 @@ class Queue
             this.L1.push(this.L2.pop())
         }
     }
-
     dequeue()
     {
         if(this.L1.length === 0)return "the queue is empty"
@@ -31,7 +27,6 @@ class Queue
             return this.L1.pop()
         }
     }
-
     print()
     {
         if(this.L1.length === 0)return console.log("the queue is empty!!")
@@ -46,14 +41,11 @@ class Queue
         }
     }
 }
-
 const queue = new Queue()
-
 queue.enqueue(1)
 queue.enqueue(2)
 queue.enqueue(3)
 queue.enqueue(4)
 queue.print()
-
 queue.dequeue()
 queue.print()
