@@ -59,3 +59,4 @@ stack.print()
 
 stack.pop()
 stack.print()
+
