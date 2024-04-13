@@ -1,0 +1,57 @@
+Topics.....
+
+> tree,application
+> complete,full,perfect tree
+> bst O(log n)
+> heap O(log n)
+> types of graph
+> isolated vertex
+> weighted graph 
+> heapsort O(n)
+> trie vs hashtable
+> graph indexing
+> vertex indexing
+> edge indexing
+> heigth vs depth of a node
+> degree of a node
+> shortest path algorithm
+> binomeal heap
+> BFS and DFS
+> self balancing tree
+> topdown and bottomup heapification
+> how to check bst is a subset of x
+> adv of priority queue using heap
+> adjecency list and adjecancy matrix
+> graph , application ,types
+> BST , application ,type
+> trie application ,type
+> heap , application , type
+
+> Binary Tree
+> Closest Path
+> Degree of the node Graph
+> Graph
+> Spanning tree
+> Minimum Spanning Tree
+> Trie
+> Types of Tree
+> AVL tree
+> B Tree
+> Full Tree
+> Complete tree
+> Perfect tree
+> Heap applications
+> BFS complexity 
+> Shortest path algorithm
+> Dijkstra's algorithm 
+> Bellman ford algorithm 
+> Topology sorting
+> Acyclic Travel
+> Graph vs tree
+> Tree vs trie
+> Types of graph
+> Complete Graph
+> Graph Indexing
+> Represent graph in memory
+> Cycles in Detection
+

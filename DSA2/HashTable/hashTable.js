@@ -1,15 +1,16 @@
-class HashTable
+// hashtable
+class hashtable
 {
     constructor(size = 20)
     {
-        this.table = new Array(size)
+        this.table  = new Array(size)
         this.size = size
     }
 
     hash(key)
     {
         let total = 0
-        for(let i = 0; i< key.length; i++)
+        for(let i = 0; i < key.length; i++)
         {
             total += key.charCodeAt(i)
         }
@@ -19,57 +20,22 @@ class HashTable
     set(key , value)
     {
         const index = this.hash(key)
-        const bucket = this.table[index]
-        if(!bucket)
-        {
-            this.table[index] = [[key , value]]
-        }
-        else
-        {
-            const sameKeyItem = bucket.find(item => item[0] === key)
-            if(sameKeyItem)
-            {
-                sameKeyItem[1] = value
-            }
-            else
-            {
-                bucket.push([key , value])
-            }
-        }
+        this.table[index] = value
     }
 
     get(key)
     {
         const index = this.hash(key)
-        // return this.table[index]
-        const bucket = this.table[index]
-        if(bucket)
-        {
-            const sameKeyItem = bucket.find(item => item[0] === key)
-            if(sameKeyItem)
-            {
-                return sameKeyItem[1]
-            }
-        }
-        return undefined
+        return this.table[index]
     }
 
     remove(key)
     {
         const index = this.hash(key)
-        // this.table[index] = undefined
-        const bucket = this.table[index] 
-        if(bucket)
-        {
-            const sameKeyItem = bucket.find(item => item[0] === key)
-            if(sameKeyItem)
-            {
-                bucket.splice(bucket.indexOf(sameKeyItem), 1)
-            }
-        }       
+        this.table[index] = undefined
     }
 
-    display()
+    dispaly()
     {
         for(let i = 0; i < this.table.length; i++)
         {
@@ -81,4 +47,9 @@ class HashTable
     }
 }
 
-const table = new HashTable(50)
+const table = new hashtable(50)
+
+table.set("name" , "mishal")
+table.set("age" , 20)
+table.remove("name")
+table.dispaly()
