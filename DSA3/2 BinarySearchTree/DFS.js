@@ -1,4 +1,12 @@
-// Binary Search Tree
+// we can traverse throught a tree in different ways 
+// 1.DFS - Depth First Search
+// 2.BFS - Breadth First Search
+
+// ========= DFS ================
+// in DFS we can search in three methods.
+// 1. pre-order
+// 2. in-order
+// 3. post-order
 
 class Node
 {
@@ -10,7 +18,7 @@ class Node
     }
 }
 
-class BinarySearchTree
+class BST
 {
     constructor()
     {
@@ -29,7 +37,7 @@ class BinarySearchTree
         {
             this.root = newNode
         }
-        else
+        else 
         {
             this.insertNode(this.root , newNode)
         }
@@ -63,28 +71,21 @@ class BinarySearchTree
 
     search(root , val)
     {
-        if(!root)
-        {
-            return false
-        }
+        if(!root)return false
         else
         {
-            if(root.val === val)
-            {
-                return true
-            }
-            else if(val < root.val)
-            {
-                return this.search(root.left , val)
-            }
+            if(root.val === val) return true
+            else if(val < root.val) return this.search(root.left , val)
             else return this.search(root.right , val)
         }
     }
+
+    // Pre-order Traversal
+    preOrder(root)
+    {
+        if()
+    }
 }
 
-const bst = new BinarySearchTree()
+const bst = new BST()
 
-bst.insert(10)
-bst.insert(5)
-bst.insert(15)
-console.log(bst.isEmpty())
