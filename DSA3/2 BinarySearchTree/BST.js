@@ -87,4 +87,8 @@ const bst = new BinarySearchTree()
 bst.insert(10)
 bst.insert(5)
 bst.insert(15)
+console.log();
 console.log(bst.isEmpty())
+
+console.log()
+console.log(bst.search(bst.root , 43));
