@@ -1,20 +1,11 @@
-// BFS Traversal Approach
+// find Min and Max value in a BS tree
 
-// 1. create a queue
-// 2. Enqueue the root node
-// 3. As long as a node exists in the queue
-// a.Dequeue the node from the front
-// b.Read the node's value
-// c.Enqueue the node's left child if it exists
-// d.Enqueue the node's right child if it exists
-
-
-class Node 
+class Node
 {
     constructor(val)
     {
         this.left = null
-        this.val = val
+        this.val = val 
         this.right = null
     }
 }
@@ -40,7 +31,7 @@ class BST
         }
         else
         {
-            this.insertNode(this.root, newNode)
+            this.insertNode(this.root , newNode)
         }
     }
 
@@ -70,35 +61,27 @@ class BST
         }
     }
 
-    search(root, val)
+    search(root , val)
     {
         if(!root)return false
         else
         {
             if(root.val === val)return true
-            else if(val < root.val) return this.search(root.left , val)
+            else if(val < root.val)return this.search(root.left , val)
             else return this.search(root.right , val)
         }
     }
 
-    // BFS traversal(level order)
-    BFS()
+    Min(root)
     {
-        const queue = []
-        queue.push(this.root)
-        while(queue.length)
-        {
-            let curr = queue.shift()
-            console.log(curr.val)
-            if(curr.left)
-            {
-                queue.push(curr.left)
-            }
-            if(curr.right)
-            {
-                queue.push(curr.right)
-            }
-        }
+       if(!root.left)return root.val
+       else return this.Min(root.left)
+    }
+
+    Max(root)
+    {
+        if(!root.right)return root.val
+        else return this.Max(root.right)
     }
 }
 
@@ -111,4 +94,4 @@ bst.insert(20)
 bst.insert(25)
 bst.insert(10)
 
-bst.BFS()
+console.log(bst.Max(bst.root))
