@@ -1,4 +1,6 @@
 // Binary Search Tree
+// A binary search tree (BST) is a type of binary tree where each node has at most two children, 
+// commonly referred to as the left child and the right child.
 
 class Node
 {

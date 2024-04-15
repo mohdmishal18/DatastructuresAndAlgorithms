@@ -4,9 +4,16 @@
 
 // ========= DFS ================
 // in DFS we can search in three methods.
-// 1. pre-order
-// 2. in-order
-// 3. post-order
+// 1. pre-order $$$$$$$$$$$$$$$$$$$$
+// read the data of the node
+// visit the left subtree
+// visit the right subtree
+
+// 2. in-order $$$$$$$$$$$$$$$$$$$$
+//
+
+// 3. post-order $$$$$$$$$$$$$$$$$$
+//
 
 class Node
 {
