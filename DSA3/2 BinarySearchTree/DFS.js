@@ -126,11 +126,7 @@ bst.insert(5)
 bst.insert(15)
 bst.insert(3)
 bst.insert(7)
-
-console.log(bst.search(bst.root , 10))
-console.log(bst.search(bst.root , 5))
-console.log(bst.search(bst.root , 15))
-console.log(bst.search(bst.root , 20))
-console.log(bst.search(bst.root , 3))
+bst.insert(11)
+bst.insert(20)
 
 bst.postOrder(bst.root)
