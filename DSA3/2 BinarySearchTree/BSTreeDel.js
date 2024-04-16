@@ -71,6 +71,8 @@ class BST
             else return this.search(root.right , val)
         }
     }
+
+    
 }
 
 const bst = new BST()

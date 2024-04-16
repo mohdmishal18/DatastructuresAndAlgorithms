@@ -1,8 +1,60 @@
 Topics.....
 
 > tree,application
+Ans : 
+A tree is a hierarchical data structure consisting of nodes connected by edges.
+It's similar to a real-world tree with branches extending from a central trunk. In a tree data structure:
+
+*The topmost node is called the root.
+*Each node can have zero or more child nodes.
+*Nodes that have the same parent are called siblings.
+*A node without children is called a leaf node or a terminal node.
+
+widely used in : 
+$File Systems
+$Organization Charts
+$Binary Search Trees(BSTs)
+$HTML DOM
+
 > complete,full,perfect tree
+Ans : 
+
+Complete Tree : 
+A complete binary tree is a special type of binary tree where every level, except possibly the last, is completely filled.
+In the last level, all nodes are as left as possible.
+Complete trees are efficient for storage in arrays because the positions of nodes can be easily calculated.
+        1
+      /   \
+     2     3
+    / \   /
+   4   5 6
+
+Full Tree : 
+A full binary tree is a type of binary tree where each node has either 0 or 2 children.
+In other words, every node has exactly 0 or 2 children; there are no nodes with only one child.
+Full trees are also called proper binary trees or 2-trees.
+Full trees are commonly used in binary tree implementations and certain algorithms like binary tree traversals.
+        1
+      /   \
+     2     3
+    / \
+   4   5
+
+Perfect Tree : 
+A perfect binary tree is both complete and full.
+It has all levels completely filled with nodes, and every node has either 0 or 2 children.
+In a perfect binary tree, the number of nodes doubles at each level, starting from the root.
+The number of leaf nodes in a perfect binary tree is equal to the number of internal nodes plus one.
+        1
+      /   \
+     2     3
+    / \   / \
+   4   5 6   7
+
 > bst O(log n)
+Ans : 
+
+
 > heap O(log n)
 > types of graph
 > isolated vertex
