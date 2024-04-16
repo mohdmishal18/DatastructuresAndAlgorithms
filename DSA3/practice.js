@@ -1,16 +1,16 @@
-// binary search tree
+// practice binary search tree
 
 class Node
 {
     constructor(val)
     {
-        this.left = null
         this.val = val
         this.right = null
+        this.left = null
     }
 }
 
-class BST
+class BST 
 {
     constructor()
     {
@@ -31,11 +31,11 @@ class BST
         }
         else
         {
-            this.insertNode(this.root , newNode)
+            return this.insertNode(this.root , newNode)
         }
     }
 
-    insertNode(root , newNode)
+    insertNode(root , val)
     {
         if(newNode.val < root.val)
         {
@@ -45,18 +45,18 @@ class BST
             }
             else
             {
-                this.insertNode(root.left , newNode)
+                return this.insertNode(root.left , newNode)
             }
         }
         else
         {
             if(root.right === null)
             {
-                root.left = newNode
+                root.right = newNode
             }
             else
             {
-                this.insertNode(root.right , newNode)
+                return this.insertNode(root.right , newNode)
             }
         }
     }
@@ -66,27 +66,48 @@ class BST
         if(!root)return false
         else
         {
-            if(val === root.val)return true
-            else
-            {
-                if(val < root.val)
-                {
-                    return this.search(root.left , val)
-                }
-                else
-                {
-                    return this.search(root.right , val)
-                }
-            }
+            if(root.val === val)return true
+            else if(val < root.val)return this.search(root.left , val)
+            else return this.search(root.right , val)
         }
     }
+
+    //traverals
+    //preorder
+    preOrder(root)
+    {
+        if(root)
+        {
+            console.log(root.val)
+            this.preOrder(root.left)
+            this.preOrder(root.right)
+        }
+    }
+
+    //inorder
+    inOrder(root)
+    {
+        if(root)
+        {
+            this.inOrder(root.left)
+            console.log(root.val)
+            this.inOrder(root.right)
+        }
+    }
+
+    //postorder
+    postOrder(root)
+    {
+        if(root)
+        {
+            this.postOrder(root.left)
+            this.postOrder(root.right)
+            console.log(root.val)
+        }
+    }
+
 }
 
 const bst = new BST()
-bst.insert(20)
-bst.insert(15)
 bst.insert(10)
-bst.insert(5)
-bst.insert(2)
-
-console.log(bst.search(bst.root , 5))
+console.log(bst.search(bst.root , 19));
