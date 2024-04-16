@@ -72,7 +72,42 @@ class BST
         }
     }
 
-    
+    delete(val)
+    {
+        this.root = this.deleteNode(this.root , value)
+    }
+
+    deleteNode(root , val)
+    {
+        if(root === null)return root
+        
+        if(val < root.value)
+        {
+            root.left = this.deleteNode(root.left , val)
+        }
+        else if(val > root.value)
+        {
+            root.right = this.deleteNode(root.right , val)
+        }
+        else
+        {
+            if(!root.left && !root.right)
+            {
+                return null
+            }
+            else if(!root.left)
+            {
+                return root.right
+            }
+            else if(!root.right)
+            {
+                return root.left
+            }
+            root.val = this.min(root.right)
+            root.right = this.deleteNode(root.right , root.value)
+        }
+        return root
+    }
 }
 
 const bst = new BST()
