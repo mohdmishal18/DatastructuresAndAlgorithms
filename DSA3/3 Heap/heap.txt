@@ -1,0 +1,27 @@
+A heap is a binary tree-based data structure that satisfies the heap property: the value of each node is greater than
+or equal to the value of its children.This property makes sure that the root node contains the maximum or minimum 
+value (depending on the type of heap), and the values decrease or increase as you move down the tree.
+(A Heap is a special Tree-based Data Structure in which the tree is a complete binary tree.)
+
+There are two types of heaps : 
+1. Min Heap 
+In this heap, the value of the root node must be the smallest among all its child nodes and 
+the same thing must be done for its left and right sub-tree also.
+
+2. Max Heap
+A Heap is a special Tree-based Data Structure in which the tree is a complete binary tree.
+
+COMPLEXITY : O(log n)
+$ The total number of comparisons required in the min heap is according to the height of the tree.
+The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).
+
+Applications : 
+
+$ Heaps are commonly used to implement priority queues, 
+where elements are retrieved based on their priority (maximum or minimum value).
+
+$ Heapsort is a sorting algorithm that uses a heap to sort an array in ascending or descending order.
+
+$ Heaps are used in graph algorithms like Dijkstra’s algorithm and Prim’s algorithm for 
+finding the shortest paths and minimum spanning trees.
+
