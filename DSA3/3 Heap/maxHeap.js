@@ -18,6 +18,4 @@ class maxHeap
     {
         return this.size
     }
-
-    
 }
