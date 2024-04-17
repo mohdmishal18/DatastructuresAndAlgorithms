@@ -107,3 +107,53 @@ Ans :
 > Represent graph in memory
 > Cycles in Detection
 
+
+===============================================
+Tree : 
+
+Binary Tree
+
+Types of Tree : 
+
+Full Tree
+Complete Tree
+Perfect Tree
+==============================================
+==============================================
+Binary Search Tree (BST)
+Closest Path
+Degree of the Node Graph
+BST Applications, Types
+AVL Tree
+B Tree
+Checking if BST is a Subset of X
+==============================================
+==============================================
+Heap
+Heap Applications, Types
+Heap Operations (e.g., Heapsort, Heapification)
+Advantages of Priority Queue using Heap
+Top-Down and Bottom-Up Heapification
+Binomial Heap
+==============================================
+==============================================
+Trie
+Trie vs Hash Table
+Trie Applications, Types
+==============================================
+==============================================
+Graph
+Types of Graph
+Weighted Graph
+Complete Graph
+Graph Applications, Types
+Graph Indexing (Vertex, Edge)
+Representing Graph in Memory (Adjacency List, Adjacency Matrix)
+BFS and DFS
+Shortest Path Algorithms (Dijkstra's, Bellman-Ford)
+Topology Sorting
+Acyclic Travel
+Cycles Detection
+Graph vs Tree
+Graph vs Trie
+==============================================
