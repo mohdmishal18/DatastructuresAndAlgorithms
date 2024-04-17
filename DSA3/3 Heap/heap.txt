@@ -10,6 +10,11 @@ the same thing must be done for its left and right sub-tree also.
 
 2. Max Heap
 A Heap is a special Tree-based Data Structure in which the tree is a complete binary tree.
+           10
+         /    \
+        4      8
+      /  \     /
+     1    2  5
 
 COMPLEXITY : O(log n)
 $ The total number of comparisons required in the min heap is according to the height of the tree.
