@@ -91,6 +91,7 @@ class MaxHeap
     //removing the max element from the max heap
     poll()
     {
+        if(!this.size)return console.log("the heap is empty")   
         this.heap[0] = this.heap.pop()
         this.size--
         this.heapifyDown()
