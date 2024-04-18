@@ -35,7 +35,7 @@ class MaxHeap
 
     rightChild(index)
     {
-        return this.head[index * 2 + 2]
+        return this.heap[index * 2 + 2]
     }
 
     getParentIndex(index)
@@ -88,6 +88,35 @@ class MaxHeap
         }
     }
 
+    //removing the max element from the max heap
+    poll()
+    {
+        this.heap[0] = this.heap.pop()
+        this.size--
+        this.heapifyDown()
+    }
+
+    heapifyDown()
+    {
+        let index = 0
+        while(this.hasLeftChild(index))
+        {
+            let  biggerChildIndex = this.getLeftChildIndex(index)
+            if(this.hasRightChild(index) && this.rightChild(index) > this.leftChild(index))
+            {
+                biggerChildIndex = this.getRightChildIndex(index)
+            }
+
+            if(this.heap[index] < this.heap[biggerChildIndex])
+            {
+                [this.heap[index] , this.heap[biggerChildIndex]] = [this.heap[biggerChildIndex] , this.heap[index]]
+            }
+            else break
+
+            index = biggerChildIndex
+        }
+    }
+
     display()
     {
         console.log(this.heap)
@@ -104,4 +133,19 @@ maxHeap.add(21)
 maxHeap.add(45)
 maxHeap.add(56)
 
+maxHeap.display()
+
+maxHeap.poll()
+maxHeap.display()
+
+maxHeap.poll()
+maxHeap.display()
+
+maxHeap.poll()
+maxHeap.display()
+
+maxHeap.poll()
+maxHeap.display()
+
+maxHeap.heapifyDown()
 maxHeap.display()
