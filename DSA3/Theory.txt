@@ -122,7 +122,6 @@ Perfect Tree
 ==============================================
 Binary Search Tree (BST)
 Closest Path
-Degree of the Node Graph
 BST Applications, Types
 AVL Tree
 B Tree
@@ -145,6 +144,7 @@ Trie Applications, Types
 Graph
 Types of Graph
 Weighted Graph
+Degree of the Node Graph
 Complete Graph
 Graph Applications, Types
 Graph Indexing (Vertex, Edge)

@@ -38,7 +38,7 @@ class MaxHeap
         return this.heap[index * 2 + 2]
     }
 
-    getParentIndex(index)
+     getParentIndex(index)
     {
         return Math.floor((index - 1) / 2)
     }
@@ -50,7 +50,7 @@ class MaxHeap
 
     getRightChildIndex(index)
     {
-        return index * 2 + 1
+        return index * 2 + 2
     }
 
     hasLeftChild(index)
@@ -125,27 +125,11 @@ class MaxHeap
 
 const maxHeap = new MaxHeap()
 
-maxHeap.add(5)
-maxHeap.add(6)
-maxHeap.add(8)
-maxHeap.add(34)
-maxHeap.add(21)
-maxHeap.add(45)
-maxHeap.add(56)
+maxHeap.add(100)
+maxHeap.add(40)
+maxHeap.add(50)
 
 maxHeap.display()
 
 maxHeap.poll()
-maxHeap.display()
-
-maxHeap.poll()
-maxHeap.display()
-
-maxHeap.poll()
-maxHeap.display()
-
-maxHeap.poll()
-maxHeap.display()
-
-maxHeap.heapifyDown()
 maxHeap.display()
