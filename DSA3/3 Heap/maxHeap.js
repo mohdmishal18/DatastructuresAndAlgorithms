@@ -117,6 +117,17 @@ class MaxHeap
         }
     }
 
+    heapSort()
+    {
+        let sortedArray = []
+        while(this.size > 0)
+        {
+            sortedArray.push(this.heap[0])
+            this.poll()
+        }
+        return sortedArray
+    }
+
     display()
     {
         console.log(this.heap)
@@ -128,8 +139,8 @@ const maxHeap = new MaxHeap()
 maxHeap.add(100)
 maxHeap.add(40)
 maxHeap.add(50)
-
-maxHeap.display()
-
-maxHeap.poll()
-maxHeap.display()
+maxHeap.add(35)
+maxHeap.add(30)
+maxHeap.add(45)
+maxHeap.add(46)
+console.log(maxHeap.heapSort())
