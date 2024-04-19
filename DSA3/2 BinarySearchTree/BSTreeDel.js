@@ -35,7 +35,7 @@ class BST
         }
     }
 
-    insertNode(root , val)
+    insertNode(root , newNode)
     {
         if(newNode.val < root.val)
         {
@@ -72,20 +72,26 @@ class BST
         }
     }
 
+    min(root)
+    {
+        if(!root.left)return root.val
+        else return this.min(root.left)
+    }
+
     delete(val)
     {
-        this.root = this.deleteNode(this.root , value)
+        this.root = this.deleteNode(this.root , val)
     }
 
     deleteNode(root , val)
     {
         if(root === null)return root
         
-        if(val < root.value)
+        if(val < root.val)
         {
             root.left = this.deleteNode(root.left , val)
         }
-        else if(val > root.value)
+        else if(val > root.val)
         {
             root.right = this.deleteNode(root.right , val)
         }
@@ -104,7 +110,7 @@ class BST
                 return root.left
             }
             root.val = this.min(root.right)
-            root.right = this.deleteNode(root.right , root.value)
+            root.right = this.deleteNode(root.right , root.val)
         }
         return root
     }
@@ -112,4 +118,9 @@ class BST
 
 const bst = new BST()
 bst.insert(10)
-console.log(bst.search(bst.root , 19));
+bst.insert(32)
+bst.insert(53)
+bst.insert(21)
+bst.insert(11)
+
+console.log(bst.search(bst.root , 21))
