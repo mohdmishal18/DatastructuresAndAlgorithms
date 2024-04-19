@@ -122,5 +122,3 @@ bst.insert(32)
 bst.insert(53)
 bst.insert(21)
 bst.insert(11)
-
-console.log(bst.search(bst.root , 21))

@@ -93,18 +93,23 @@ class BST
         return root
     }
 
-    isBST()
+    closestVal(root , target)
     {
-        return this.checkBST(this.root , -Infinity , Infinity)
-    }
+        let closest = root.val
+        let currentNode = root
 
-    checkBST(node , min , max)
-    {
-        if(node === null)return true
+        while(currentNode)
+        {
+            if(Math.abs(target - closest) > Math.abs(closest - currentNode.val))
+            {
+                closest = currentNode.val
+            }
 
-        if(node.val < min || node.val > max)return false
-
-        return (this.checkBST(node.left , min , node.val) && this.checkBST(node.right , node.val , max))
+            if(target < currentNode.val)currentNode = currentNode.left
+            else if(target > currentNode.val)currentNode = currentNode.right
+            else break
+        }
+        return closest
     }
 }
 const bst = new BST()
@@ -116,4 +121,5 @@ bst.insert(9)
 bst.insert(87)
 bst.insert(43)
 
-console.log(bst.isBST(bst))
+console.log(bst.closestVal(bst.root , 46))
+console.log(bst.closestVal(bst.root , 10))

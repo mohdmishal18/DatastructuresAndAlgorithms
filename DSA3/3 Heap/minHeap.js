@@ -129,7 +129,6 @@ minHeap.add(35)
 minHeap.add(60)
 minHeap.add(80)
 minHeap.add(5)
-
 minHeap.display()
 
 console.log(minHeap.heapSort())
