@@ -94,6 +94,7 @@ class BST
     }
 
     isBST()
+    
     {
         return this.checkBST(this.root , -Infinity , Infinity)
     }
