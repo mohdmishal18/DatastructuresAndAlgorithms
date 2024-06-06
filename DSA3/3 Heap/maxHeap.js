@@ -38,7 +38,7 @@ class MaxHeap
         return this.heap[index * 2 + 2]
     }
 
-     getParentIndex(index)
+    getParentIndex(index)
     {
         return Math.floor((index - 1) / 2)
     }
