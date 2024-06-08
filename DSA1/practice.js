@@ -1,11 +1,8 @@
-
-
-// linked list.
-class Node
+class Node 
 {
-    constructor(data)
+    constructor(val)
     {
-        this.data = data
+        this.val = val
         this.next = null
     }
 }
@@ -17,240 +14,164 @@ class SinglyLinkedList
         this.head = null
         this.size = 0
     }
-    
-    getSize()
-    {
-        return this.size;
-    }
-    
+
     isEmpty()
     {
-        return this.size === 0;
+        return this.size === 0 || this.head === null
     }
-    
-    append(data)
+
+    getSize()
     {
-        const node = new Node(data)
-        if(this.isEmpty())
-        {
-            this.head = node;
-        }
-        else
-        {
-            let prev = this.head
-            while(prev.next)
-            {
-                prev = prev.next;
-            }
-            prev.next = node
-        }
-        this.size++
-        return this
+        return this.size
     }
-    
-    prepend(data)
+
+    push(val)
     {
-        const node = new Node(data)
+        const node = new Node(val)
         if(this.isEmpty())
         {
             this.head = node
+            this.size++
+        }
+        else
+        {
+            let curr = this.head
+            while(curr.next)
+            {
+                curr = curr.next
+            }
+            curr.next = node
+            this.size++
+        }
+    }
+
+    unShift(val)
+    {
+        const node = new Node(val)
+        if(this.isEmpty())
+        {
+            this.head = node
+            this.size++
         }
         else
         {
             node.next = this.head
             this.head = node
-        }
-        this.size++
-    }
-    
-    insert(data, index)
-    {
-        if(index < 0 || index > this.size)
-        {
-            return console.log(null)
-        }
-        if(index === 0)
-        {
-            this.prepend(data)
-        }
-        else
-        {
-           const node = new Node(data);
-           let prev = this.head
-           for(let i = 0; i < index - 1; i++)
-           {
-               prev = prev.next
-           }
-           node.next = prev.next;
-           prev.next = node;
-           this.size++
+            this.size++
         }
     }
-    
+
     shift()
     {
-        if(this.isEmpty())
-        {
-            return console.log("the list is empty !! no elements to remove")
-        }
-        else if(this.getSize() === 1)
-        {
-            this.head = null;
-            this.size--;
-            return console.log("head node removed")
-        }
+        if(this.isEmpty())return console.log("the list is empty !!")
         else
         {
-            let removedNode = this.head;
             this.head = this.head.next
-            this.size--;
-            return console.log("Node " + removedNode.data + " removed")
+            this.size--
         }
     }
-    
+
     pop()
     {
-        if(this.isEmpty())
+        if(this.isEmpty())return console.log("the list is empty")
+        else if(!this.head.next)
         {
-            return console.log("the list is empty !! no elements to remove")
-        }
-        else if(this.getSize() === 1)
-        {
-            this.head = null;
+            this.head = null
             this.size--;
-            return console.log("head node removed")
         }
-        else
+        else  
         {
-           let prev = this.head;
-           for(let i = 0; i < this.size - 2; i++)
-           {
-               prev = prev.next
-           }
-           prev.next = null
-           this.size--;
+            // let curr = this.head
+            // for(let i = 0; i < this.getSize() - 2; i++)
+            // {
+            //     curr = curr.next
+            // }
+            // curr.next = curr.next.next
+            // this.size--
+
+            let fast = this.head.next
+            let slow = this.head
+
+            while(fast.next)
+            {
+                fast = fast.next
+                slow = slow.next
+            }
+            slow.next = slow.next.next
+            this.size--
         }
     }
-    
-    removeFrom(index)
+
+    removeData(val)
     {
-        if(index < 0 || index > this.size - 1)
-        {
-            return console.log("please enter a valid index")
-        }
-        
-        if(index === 0)
-        {
-            this.head = this.head.next;
-        }
+        if(this.isEmpty())return console.log("the list is empty")
+        else if(this.head.data == val)this.head = this.head.next
         else
         {
-            let prev = this.head;
-            for(let i = 0; i < index - 1; i++)
+            let curr = this.head
+            while(curr.next && curr.next.val != val)
             {
-                prev = prev.next
+                curr = curr.next
             }
-            // let removedNode = prev.next
-            // prev.next = removedNode.next;
-            prev.next = prev.next.next
+
+            if(curr.next)
+            {
+                curr.next = curr.next.next
+            }
+            else
+            {
+                return console.log("data doesn't exist")
+            }
+
         }
         this.size--
     }
 
-    removeData(data)
+    removeAt(index)
     {
-        if(this.isEmpty())
-        {
-            return null
-        }
-        
-        if(this.head.data === data)
-        {
-            this.head = this.head.next
-        }
+        if(index < 0 || index > this.getSize() - 1)return console.log("please enter a valid index")
+
+        if(this.isEmpty())return console.log("the list is empty")
+        else if(index == 0)this.head = this.head.next
         else
         {
-            let prev = this.head
-            while(prev.next && prev.next.data !== data)
+            let curr = this.head
+            for(let i = 0; i < index - 1; i++)
             {
-                prev = prev.next
-            }
-            if(prev.next)
-            {
-                // const removedNode = prev.next
-                // prev.next = removedNode.next
-                prev.next = prev.next.next
-            }
-        }
-        this.size--;
-    }
-
-    search(data)
-    {
-        if(this.isEmpty())
-        {
-            return -1
-        }
-
-        let prev = this.head
-        let i = 0;
-        while(prev)
-        {
-            if(prev.data === data)
-            {
-                return i;
-            }
-            i++
-            prev = prev.next
-        }
-        return -1
-    }
-
-    reverse()
-    {
-        let prev = null
-        let curr = this.head
-        while(curr)
-        {
-            let next = curr.next
-            curr.next = prev
-
-            prev = curr
-            curr = next
-        }
-        this.head = prev
-    }
-    
-    print()
-    {
-        if(this.isEmpty())
-        {
-            console.log("The list is empty !!!")
-        }
-        else
-        {
-            let curr = this.head;
-            let listData = ''
-            while(curr)
-            {
-                listData += curr.data + " -> "
                 curr = curr.next
             }
-            console.log("list : " + listData)
+            curr.next = curr.next.next
         }
+        this.size--
     }
 
-    tnirp()
-    {
 
+    print()
+    {
+        if(this.isEmpty())return console.log("the list is empty")
+        else
+        {
+            let list = ''
+            let curr = this.head
+            while(curr)
+            {
+                list += curr.val + ' -> '
+                curr = curr.next
+            }
+            return console.log(list + 'null')
+        }
     }
 
 }
 
-const list = new SinglyLinkedList()
-list.append(1)
-list.append(2)
-list.append(3)
-list.append(4)
-list.append(5)
-list.print()
+const linkedList = new SinglyLinkedList()
+linkedList.push(1)
+linkedList.push(2)
+linkedList.push(3)
+linkedList.push(4)
+linkedList.push(5)
+linkedList.push(6)
+
+linkedList.removeAt(6)
+
+linkedList.print();
